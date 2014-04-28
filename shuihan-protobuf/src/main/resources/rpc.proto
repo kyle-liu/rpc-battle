@@ -1,0 +1,64 @@
+package rpc;
+
+option java_package = "com.taobao.shuihan.rpc.protos";
+option java_outer_classname = "PersonProtos";
+option java_generic_services = true;
+
+message Phone
+{
+   optional string country = 1;
+   optional string area = 2;
+   optional string number = 3;
+   optional string extensionNumber = 4;
+}
+
+message FullAddress
+{
+   optional string countryId = 1;
+   optional string countryName = 2;
+   optional string provinceName = 3;
+   optional string cityId = 4;
+   optional string cityName = 5;
+   optional string streetAddress = 6;
+   optional string zipCode = 7;
+}
+
+
+message PersonInfo
+{
+   repeated Phone phones = 1;
+   optional Phone fax = 2;
+   optional FullAddress fullAddress = 3;
+   optional string mobileNo = 4;
+   optional string name = 5;
+   optional bool  male = 6;
+   optional bool female = 7;
+   optional string department = 8;
+   optional string jobTitle = 9;
+   optional string homepageUrl = 10;
+}
+
+
+message Person
+{
+   enum PersonStatus{
+    ENABLED=1;
+    DISABLED=2;
+   }
+   optional string personId = 1;
+   optional string loginName = 2;
+   optional PersonStatus status = 3;
+   optional PersonInfo info = 4;
+   optional bytes attachment = 5;
+}
+
+message callStr
+{
+   optional string in =1;
+}
+
+serviceIndex HelloService
+{
+   rpc helloPerson (Person) returns (Person);
+   rpc helloWorld (callStr) returns (callStr);
+}

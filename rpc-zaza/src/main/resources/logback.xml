@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration encoding="GBK">
+    <appender name="logFile"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./logs/zaza.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>zaza.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <MaxHistory>15</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%date %level %msg%n%n</Pattern>
+			<charset>GBK</charset>
+        </encoder>
+    </appender>
+	<root>
+		<level value="WARN" />
+		<appender-ref ref="logFile" />
+	</root>
+</configuration>
+

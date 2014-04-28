@@ -1,0 +1,1 @@
+java -Xms4g -Xmx4g -Xmn1g -Djava.ext.dirs="../lib" com.taobao.rpc.benchmark.main.ClientMain  -t 200000 -s 10.235.170.2 > zaza.log 2>&1 &

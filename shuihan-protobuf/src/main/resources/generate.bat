@@ -1,0 +1,1 @@
+protoc ¨Cjava_out=. rpc.proto
